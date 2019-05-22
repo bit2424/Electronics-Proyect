@@ -70,6 +70,10 @@ void loop() {
       myservo2.write(posI2+100-i);
       Serial.print(val);
     }
+
+    Serial.print("  Red     ");Serial.print(red);
+    Serial.print("  Blue    ");Serial.print(blue);
+    Serial.print("  Green   ");Serial.print(green);
      
     Serial.println("");  
     delay(10);
