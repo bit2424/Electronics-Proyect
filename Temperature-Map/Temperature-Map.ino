@@ -51,7 +51,7 @@ void loop() {
   }
   for (int i=0; i<120; i++){
     double val = mlx.readObjectTempC();
-    Serial.print("*C\tObject = "); Serial.print(val); Serial.println("*C");
+    Serial.print("*C\tObject = "); Serial.print(val); Serial.println("*C");Serial.print("  X    ");Serial.print(colums); Serial.print("  Y    ");
     //red green blue
     temperatura = map(val,-50,270,1700,10000);
     myservo1.write(i);
@@ -65,10 +65,13 @@ void loop() {
 
     if(up){
       myservo2.write(posI2+i);
+      Serial.print(val);
     }else{
       myservo2.write(posI2+100-i);
+      Serial.print(val);
     }
-        
+     
+    Serial.println("");  
     delay(10);
   }
 
@@ -82,14 +85,54 @@ void loop() {
 }
 
 
-int dRed(int temp){
+int dBlue(int temp){
+  if(19<temp && temp<21){
+    return 255;
+  }else if(21<temp && temp<23){
+    return 255;
+  }else if(23<temp && temp<25){
+    return 0;
+  }else if(25<temp && temp<26){
+    return 0;
+  }else if(26<temp && temp<27){
+    return 0;
+  }else if(27<temp && temp<28){
+    return 0;
+  } 
   return 0;
+  
 }
 
-int dBlue(int temp){
+int dRed(int temp){
+  if(19<temp && temp<21){
+    return 0;
+  }else if(21<temp && temp<23){
+    return 0;
+  }else if(23<temp && temp<25){
+    return ;
+  }else if(25<temp && temp<26){
+    return 200;
+  }else if(26<temp && temp<27){
+    return 255;
+  }else if(27<temp && temp<28){
+    return 255;
+  } 
   return 0;
 }
 
 int dGreen(int temp){
+  if(19<temp && temp<21){
+    return 0;
+  }else if(21<temp && temp<23){
+    return 255;
+  }else if(23<temp && temp<25){
+    return 255;
+  }else if(25<temp && temp<26){
+    return 255;
+  }else if(26<temp && temp<27){
+    return 0;
+  }else if(27<temp && temp<28){
+    return 0;
+  } 
   return 0;
 }
